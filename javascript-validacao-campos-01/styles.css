@@ -1,0 +1,30 @@
+*{
+    font-family: calibri, arial, verdana;
+    font-size: 14px;
+    color:gray;
+    }
+    label,  input {
+        display: block;
+        float: left;
+    }
+    
+    input {
+    color:gray;
+    }
+    
+    label {	
+        text-align: left;
+        width: 105px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+    
+    }
+    
+    fieldset {
+        border: solid 1px gray;
+        width: 500px;
+    }
+    
+    br {
+        clear: left;
+    }

@@ -1,0 +1,83 @@
+<script type="text/javascript" src="form-dinamico-ajax.js"></script>
+<!-- ARQUIVOS ANEXO - INICIO -->
+<div class="col-xs-6">
+	<div class="panel"><div class="row"><div class="col-sm-12" style="background-color:lavender;">Anexos</div></div>
+		<div class="panel-body">
+			<div class="row">
+				
+				<form enctype="multipart/form-data" action="../arquivos/processarArquivosComunicado!adicionarArquivo.do" id="form-incluir-arquivo" name="form-incluir-arquivo" method="post">
+					<div class="col-xs-2">
+						<label id="label-cod-Comunicado">Arquivos:</label></div>
+					<div class="col-xs-6">
+						<input type="file" id="arquivo-importado" name="anexosDTO.arquivo" class="form-control-file input-sm fullFormWidth">
+						<input type="hidden" id="arquivo-nome" name="anexosDTO.nome" class="form-control input-sm fullFormWidth">
+					</div>
+					<div class="col-xs-2">
+						<button class="form-control btn btn-xs btn-primary" onclick="javascript: adicionarArquivoListar();">Adicionar</button>
+					</div>
+				</form>
+				
+			</div><br/>
+			<div class="row" style="text-align: center">
+				<div class="col-sm-8 bg-primary">Nome do Arquivo</div>
+				<div class="col-sm-2 bg-primary">Publicar</div>
+				<div class="col-sm-2 bg-primary">Excluir</div>
+			</div>
+			
+			<!-- EXIBE A LISTA DE ARQUIVOS IMPORTADOS -->
+			<div class="row"id="arquivos-importados"></div>
+			
+			<div class="row"id="arquivos-importados-action">
+			<c:forEach items="${listaAnexos}" var="arquivo">
+				<div id="arq-linha-${arquivo.ordem}" class="row operacao" style="text-align: center">
+					<div class="col-sm-8" style="text-align: left; color:#337ab7">
+						<span class="glyphicon glyphicon-save"></span>
+						<c:out value="${arquivo.nome}"></c:out> 
+					</div>
+					
+					<!-- HABILITAR PUBLICACAO -->
+					<div class="col-sm-2">
+						
+						<form id="form-habilita-arq-${arquivo.ordem}" name="form-habilita-arq-${arquivo.ordem}" action="arquivos/processarArquivosComunicado!habilitarArquivo.do" method="post">
+							
+							<input type="hidden" name="anexosDTO.nome" value="${arquivo.nome}">
+
+							<c:if test="${arquivo.habilitarEnvio eq false}">
+								<input type="checkbox" name="anexosDTO.habilitarEnvio" value="false" onclick="javascript:habilitarArquivoEnvio('form-habilita-arq-${arquivo.ordem}')"/>
+							</c:if>
+							<c:if test="${arquivo.habilitarEnvio eq true}">
+								<input type="checkbox" name="anexosDTO.habilitarEnvio" checked="checked" value="true" onclick="javascript:habilitarArquivoEnvio('form-habilita-arq-${arquivo.ordem}')"/>
+							</c:if>
+							
+						</form>
+					
+					</div>
+					
+					<!-- REMOVER ARQUIVOS  -->
+					<div class="col-sm-2" style="color:red">
+						<!-- REMOVER ARQUIVO -->
+						<form id="form-arquivo-remover-id-${arquivo.ordem}" action="arquivos/processarArquivosComunicado!removerArquivo.do" method="post">
+							<input type="hidden" name="anexosDTO.nome" value="${arquivo.nome}">
+							<button class="btn" style="margin: 1px;" onclick="javascript: preparaRemoverArquivo('arq-linha-${arquivo.ordem}','form-arquivo-remover-id-${arquivo.ordem}');" ><span class="glyphicon glyphicon-trash"></span></button>
+						</form>
+					</div>
+					 
+				</div>
+			</c:forEach>
+			</div>
+			<!-- 
+			<div class="row" style="text-align: center">
+				<div class="col-sm-4" style="text-align: center">grafica.pdf</div>
+				<div class="col-sm-5"><input type="checkbox" id="scales" name="scales" checked/></div>
+				<div class="col-sm-3" style="text-align: center"><span class="glyphicon glyphicon-remove-circle"></span></div>
+			</div>
+			<div class="row" style="text-align: center">
+				<div class="col-sm-4" >descricao.docx</div>
+				<div class="col-sm-5"><input type="checkbox" id="scales" name="scales"/></div>
+				<div class="col-sm-3" ><span class="glyphicon glyphicon-remove-circle"></span></div>
+			</div>
+			-->
+		</div>
+	</div>
+</div>
+<!-- ARQUIVOS ANEXO - FINAL -->

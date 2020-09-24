@@ -1,0 +1,60 @@
+ <script src="jquery.min.js"></script>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>How to retrieve data from JSON file using Jquery and ajax?</title>
+		
+		   <script type="text/javascript" src="ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script>	
+		   
+    </head>
+    <body>
+    <div id="info"></div>
+    </body>
+
+    <script type="text/javascript">
+                    // script for Load 6 items at a time
+                    var j=0; // index for start load in the object
+                    var xdata; //A global variable for accessing it from inside the functions. it will load the file and do not want to read the file every time 
+                    //loading the JSON file to object by Ajax
+                    var xreq = new XMLHttpRequest();
+                    xreq.open('POST', 'arquivos.json');
+                    xreq.onload = function () {
+                        //convert the file from text to object after opened it , on load the file
+                        xdata = JSON.parse(xreq.responseText);
+                        // call funcation to Build the page
+						console.log(xdata);
+                        addHtml(xdata, j);
+                        // added 6 to the index for start loading from the next items
+                        j = j + 6;
+                    };
+                    //send ajax
+                    xreq.send();
+
+                    // when the page is ready and already the scroll access to end page call the building function again
+                    $(document).ready(function () {
+                            $(window).scroll(function () {
+                                // get the scroll Position
+                                var scrollPosition = $(window).scrollTop();
+                                // Multiplication operation in 1.2 in order to call the function before arrival the end of the page with 20%
+                                if (scrollPosition >= $(document).height() - ($(window).height())*1.2 && j < xdata.length) {
+                                    addHtml(xdata, j);
+                                    j = j + 6;
+                                    xreq.send();
+                                }
+                            });
+                        });
+
+                    //funcation to Build the page
+                    function addHtml(data,i) {
+                        var info = document.getElementById("info");
+                        var HtmlText ="";
+                        // insert the HTML items before end a page
+                        info.insertAdjacentHTML('beforeend',HtmlText);
+                    }
+                    </script>
+
+
+    </html>
+
+<!-- end snippet Alwahashi 2017 -->

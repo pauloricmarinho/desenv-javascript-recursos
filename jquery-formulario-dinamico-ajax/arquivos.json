@@ -1,0 +1,8 @@
+{"listaAnexosData":[
+{"ordem":"1","nome":"Arquivo 01","habilitarEnvio":true,"extensao":".pdf"},
+{"ordem":"2","nome":"Arquivo 02","habilitarEnvio":true,"extensao":".xml"},
+{"ordem":"3","nome":"Arquivo 03","habilitarEnvio":false,"extensao":".xsl"},
+{"ordem":"4","nome":"Arquivo 04","habilitarEnvio":true,"extensao":".pdf"},
+{"ordem":"5","nome":"Arquivo 05","habilitarEnvio":true,"extensao":".doc"},
+{"ordem":"6","nome":"Arquivo 06","habilitarEnvio":true,"extensao":".docx"}
+]}

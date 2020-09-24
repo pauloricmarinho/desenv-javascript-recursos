@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Validacação de Campos</title>
+<link rel="stylesheet" type="text/css" href="styles.css" /> 
+<script language="javascript" type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+<form method="post" action="#" name="form1" >
+  <fieldset>
+  <legend>Novo Usuário </legend>
+  <label for="nome">Nome:</label>
+  <input type="text" name="txtnome" id="nome" size="50" maxlength="200"/><br />
+  <label for="email">Email:</label>
+  <input type="text" name="txtemail" id="email" size="50" maxlength="200"/><br />
+  <label for="cargo">Cargo:</label>
+  <select name="cbocargo">
+  <option value="1">Analista de Segurança</option>
+  <option value="2">Analista de Sistemas</option>
+  <option value="3">Analista de Testes</option>
+  <option value="4">Administrador de Banco de Dados</option>
+  <option value="5">Desenvolvedor</option>
+  <option value="0" selected="true" > >> Selecione </option>
+  </select>
+  <br />
+  <label for="usuario">Usuário:</label>
+  <input type="text" name="txtusuario" id="usuario"/><br />
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="txtsenha"/><br />
+  <label for="senha2">Confirmar Senha:</label>
+  <input type="password" id="senha2" name="txtsenha2"/><br />
+  </fieldset>
+  <fieldset>
+  <legend>Conhecimento </legend>
+  <input type="checkbox" name="chkconhecimento" value="ASP"/> ASP <br />
+  <input type="checkbox" name="chkconhecimento" value="ASP.net"/> ASP.net <br />
+  <input type="checkbox" name="chkconhecimento" value="C/C++"/> C/C++ <br />
+  <input type="checkbox" name="chkconhecimento" value="C#"/> C# <br />
+  <input type="checkbox" name="chkconhecimento" value="Python"/> Python <br />
+  <input type="checkbox" name="chkconhecimento" value="Delphy"/> Delphy <br />
+  <input type="checkbox" name="chkconhecimento" value="Javascript"/> Javascript <br />
+  <input type="checkbox" name="chkconhecimento" value="Java"/> Java <br />
+  <input type="checkbox" name="chkconhecimento" value="PHP"/> PHP <br /><br />
+  </fieldset>
+   <fieldset>
+  <legend>Tipo de Usuário </legend>
+  <input type="radio" name="rdtipo" id="tipo" value="Administrador"/> Administrador <br />
+  <input type="radio" name="rdtipo" id="tipo" value="Usuário"/> Usuário <br />
+
+  </fieldset>
+  <input type="submit" value="Cadastrar" onfocus="return validar()" />
+  <input type="reset" value="Cancelar"/>
+</form>
+</body>
+</html>

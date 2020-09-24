@@ -1,0 +1,100 @@
+<html lang="pt" charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulário Dinâmico com AJAX</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+   <script type="text/javascript" src="ajax-cross-origin/js/jquery.ajax-cross-origin.min.js"></script>	
+
+  
+  <script src="formulario-dinamico-ajax.js"></script>
+  
+</head>
+
+<body>
+<div class="container">
+	<!-- ARQUIVOS ANEXO - INICIO -->
+
+	
+			
+		
+			<div class="row">
+				<form enctype="multipart/form-data" action="#" id="form-incluir-arquivo" method="post">
+					
+					<div class="col-12 col-md-12">
+						<label class="label form-group">Arquivos:</label>
+						<input type="file" id="arquivo-importado" name="anexosDTO.arquivo" class="form-group">
+						<input type="hidden" id="arquivo-nome" name="anexosDTO.nome" class="form-control input-sm">
+						
+					</div>
+					
+					<div class="col-8 col-md-12">
+						 <button class="form-control btn btn-primary" onclick="javascript: adicionarArquivoListar();">Adicionar</button>
+					</div>
+					
+				</form>
+			</div>
+			
+			
+			
+			<div class="row" style="text-align: center">
+				<div class="col-sm-8 bg-primary">Nome do Arquivo</div>
+				<div class="col-sm-2 bg-primary">Publicar</div>
+				<div class="col-sm-2 bg-primary">Excluir</div>
+			</div>
+			
+			
+			
+			<!-- EXIBE A LISTA DE ARQUIVOS IMPORTADOS -->
+			<div class="row"id="arquivos-importados"></div>
+			
+			<div class="row"id="arquivos-importados-action"></div>
+			<!-- 
+			<div class="row" style="text-align: center">
+				<div class="col-sm-4" style="text-align: center">grafica.pdf</div>
+				<div class="col-sm-5"><input type="checkbox" id="scales" name="scales" checked/></div>
+				<div class="col-sm-3" style="text-align: center"><span class="glyphicon glyphicon-remove-circle"></span></div>
+			</div>
+			<div class="row" style="text-align: center">
+				<div class="col-sm-4" >descricao.docx</div>
+				<div class="col-sm-5"><input type="checkbox" id="scales" name="scales"/></div>
+				<div class="col-sm-3" ><span class="glyphicon glyphicon-remove-circle"></span></div>
+			</div>
+			-->
+</div>
+<!-- ARQUIVOS ANEXO - FINAL -->
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-12 col-md-8">.col-12 .col-md-8</div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-6">.col-6</div>
+    <div class="col-6">.col-6</div>
+  </div>
+</div>
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

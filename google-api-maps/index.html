@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Exemplo de Mapa Simples</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+	<!-- Referência a API Javascript do Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+var map;
+// Definição de Zoom de Visualização
+// Coordenadas do local
+// Tipo do Mapa
+function initialize() {
+  var mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(-22.618, -42.576),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  // Configurações e posicionamento do mapa em um elemento da página
+  new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+}
+// Carregar o Mapa
+google.maps.event.addDomListener(window, 'load', initialize);
+
+  </script>
+  </head>
+  <body>
+  <!-- Div do será exibido o Mapa -->
+    <div id="map-canvas" style="width:45%; margin:auto; "></div>
+  </body>
+</html>

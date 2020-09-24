@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Button - Default functionality</title>
+  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+ 
+ $(function(){
+   
+	//alert('Meu Teste');
+   $( ".widget input[type=submit], .widget a, .widget button" ).button();
+    $( "button, input, a" ).click( function( event ) {
+      //event.preventDefault();
+    });
+	
+	var i = 0;
+	
+  });
+  
+  
+   function adicionarArquivoListar(){
+	
+		event.preventDefault();
+	   
+		var divRoot 			= document.createElement('div');
+			divRoot.id 			= "linha-01";
+			divRoot.class 	= 'col-sm-12';
+	   
+	   	var divArquivo			=  document.createElement('div');
+			divArquivo.id    	= 'arquivo-id-01';
+			divArquivo.class 	= 'col-sm-8';
+			divArquivo.style	="text-align: left; color:#337ab7";
+			divArquivo.append('Teste');
+			
+		var divHabilitar			=  document.createElement('div');
+			divHabilitar.id    		= 'arquivo-hl-01';
+			
+			divHabilitar.style		= "text-align: center; color:blue";
+			divHabilitar.innerHTML 	= "<span class='glyphicon glyphicon-save'></span>";
+		
+		var divRemover			=  document.createElement('div');
+			divRemover.id    		= 'rm-arquivo-01';
+			divRemover.class 		= 'col-sm-2';
+			divRemover.style		= "text-align: center; color:red";
+			divRemover.innerHTML 	= "<span class='glyphicon glyphicon-trash'></span>";
+			
+			
+		var formRemover 			= document.createElement('form');
+			formRemover.action		= "teste.do";
+			formRemover.method		= "POST";
+			formRemover.id			= "meu-id";
+		
+		var btnRemover 				= document.createElement('button');
+			btnRemover.class		= "btn glyphicon glyphicon-trash";
+			btnRemover.id			= "btn-arquivo-01";
+			btnRemover.innerHTML	= "Excluir";
+			
+			btnRemover.addEventListener("click", function(){removerArquivoListar(divRoot, formRemover.id)}, false); 
+			
+		formRemover.appendChild(btnRemover);
+		
+		divRemover.appendChild(formRemover);
+		
+		
+		divRoot.appendChild(divArquivo);
+		divRoot.appendChild(divHabilitar);
+		divRoot.appendChild(divRemover);
+		
+		$("#lista-anexos").append(divRoot);
+		
+		
+		
+	}
+	
+	function removerArquivoListar(div, form){
+		event.preventDefault();
+		div.remove();
+		alert('Formulário' + form);
+	}
+  
+  
+  </script>
+</head>
+<body>
+<div class="widget">
+
+	<form id="form-incluir-arquivo">
+		<button onclick="javascript: adicionarArquivoListar()">Enviar</button>
+	</form>
+	
+	<div id="lista-anexos"></div>
+ 
+</div> 
+</body>
+</html>
