@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Google Visualization API Sample
+    </title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1');
+    </script>
+    <script type="text/javascript">
+      function drawVisualization() {
+        var wrapper = new google.visualization.ChartWrapper({
+          chartType: 'ColumnChart',
+          dataTable: [['', 'Java', 'Javascript', 'PHP', 'MySql', 'C++', 'Delphy'],
+                      ['', 15, 10, 30, 17, 5, 2]],
+          options: {'title': 'Linguagem de Programação'},
+          containerId: 'visualization'
+        });
+        wrapper.draw();
+      }
+      google.setOnLoadCallback(drawVisualization);
+    </script>
+	<script type="text/javascript">
+      function drawVisualization() {
+        var wrapper = new google.visualization.ChartWrapper({
+          chartType: 'ColumnChart',
+          dataTable: [['', 'Java', 'Javascript', 'PHP', 'MySql', 'C++', 'Delphy'],
+                      ['Usuário A', 15, 10, 30, 17, 5, 2],
+					  ['Usuário B', 8, 12, 15, 14, 7, 9]],
+          options: {'title': 'Linguagem de Programação'},
+          containerId: 'visualization-v2'
+        });
+        wrapper.draw();
+      }
+      google.setOnLoadCallback(drawVisualization);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="visualization" style="width: 600px; height: 400px;"></div>
+  </body>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="visualization-v2" style="width: 800px; height: 400px;"></div>
+  </body>
+</html>

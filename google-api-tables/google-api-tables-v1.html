@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Categorias');
+        data.addColumn('number', 'Tópicos');
+        data.addColumn('boolean', 'Status');
+        data.addRows([
+          ['Programação'           ,  25, true],
+          ['Banco de Dados'        ,  20,  true],
+          ['Arquitetura de Redes'  ,  5 , false],
+          ['Engenharia de Software',  10,  true]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: true, width: 450});
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id='table_div'></div>
+  </body>
+</html>
