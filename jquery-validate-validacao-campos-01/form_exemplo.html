@@ -1,0 +1,129 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Validação de Campos com jQuery</title>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+
+        <script language="JavaScript" src="../resources/jquery/jquery.js" type="text/javascript"></script>
+        <script language="JavaScript" src="../resources/jquery-validate/jquery.validate.js" type="text/javascript"></script>
+        <style type="text/css">
+            * { font-family: Verdana; font-size: 96%; }
+            label { display: block; margin-top: 10px; }
+            label.error { float: none; color: red; margin: 0 .5em 0 0; vertical-align: top; font-size: 10px }
+            p { clear: both; }
+            .submit { margin-top: 1em; }
+            em { font-weight: bold; padding-right: 1em; vertical-align: top; }
+        </style>
+
+        <script type="text/javascript">
+		
+            $(document).ready( function() {
+				// 
+                $("#formularioContato").validate({
+                    // Define as regras
+                    rules:{
+                        campoNome:{
+                            // campoNome será obrigatorio (required) e terá tamanho minimo (minLength)
+                            required: true, minlength: 2
+                        },
+						campoSite:{
+                            // válida a url digitada no padrão: http://www.seusite.com.br
+                            url: true
+                        },
+                        campoNasc:{
+                            // campoEmail será obrigatorio (required) e válida a data no padrão ISO AAAA-MM-DD
+                            required: true, dateISO: true
+                        },
+						campoEmail:{
+                            // campoEmail será obrigatorio (required) e precisará ser um e-mail válido (email)
+                            required: true, email: true
+                        },
+                        campoMensagem:{
+                            // campoMensagem será obrigatorio (required) e terá tamanho minimo (minLength)
+                            required: true, minlength: 2
+                        },
+						campoTelefone:{
+                            // campoMensagem será obrigatorio (required) e valida o telefone informado
+                            required: true, phoneBR: true
+                        },	
+						campoCelular:{
+                            // campoMensagem será obrigatorio (required) e valida o celular informado no padrão 9 dígitos
+                            required: true, mobileBR: true
+                        },
+						campoIdade:{
+                            // campoMensagem será obrigatorio (required) e válida o preenchiemento de número
+                            required: true, number: true
+                        }
+                    },
+                    // Define as mensagens de erro para cada regra
+                    messages:{
+                        campoNome:{
+                            required: "Digite o seu nome",
+                            minlength: "O seu nome deve conter, no mínimo, 2 caracteres"
+                        },
+						campoSite:{
+                            url: "Informe uma URL válida. Ex: http://www.seusite.com.br ",
+                            
+                        },
+                        campoEmail:{
+                            required: "Digite o seu e-mail para contato",
+                            email: "Digite um e-mail válido"
+                        },
+						 campoNasc:{
+                            required: "Digite a Sua Data de Nascimento",
+                            dateISO: "Informe uma Data Válida AAAA/MM/DD"
+                        },
+                        campoMensagem:{
+                            required: "Digite a sua mensagem",
+                            minlength: "A sua mensagem deve conter, no mínimo, 2 caracteres"
+                        },
+						campoTelefone:{
+                            required: "Informe pelo menos um Telefone",
+                            phoneBR: "Informe um Telefone Válido (0xx) 0000-0000"
+                        },
+						campoCelular:{
+                            required: "Informe pelo menos um Telefone",
+                            mobileBR: "Informe um Celular Válido (0xx) 90000-0000"
+                        },						
+						campoIdade:{
+                            required: "Digite a sua Idade",
+                            minlength: "A sua mensagem deve conter, no mínimo, 2 caracteres",
+							number: "Informe Somente Números"
+                        }
+                    }
+                });
+            });
+        </script>
+        
+    </head>
+    <body>      
+        <form id="formularioContato" method="post" action="">
+            <label>Nome</label>
+            <input name="campoNome" type="text" value="" />
+
+			 <label>Site</label>
+            <input name="campoSite" type="text" value="" />
+			
+            <label>E-mail</label>
+            <input name="campoEmail" type="text" value="" />
+			
+			<label>Telefone</label>
+            <input name="campoTelefone" id="campoTelefone" type="text" value=""/>
+			
+			<label>Celular</label>
+            <input name="campoCelular" id="campoCelular" type="text" value="" />
+			
+			<label>Nascimento</label>
+            <input name="campoNasc" type="text" value="" />
+			
+			 <label>Idade</label>
+            <input name="campoIdade" type="text" value="" />
+
+            <label>Mensagem</label>
+            <textarea name="campoMensagem"></textarea><br />
+
+            <input type="submit" class="submit" value="Enviar" />
+        </form>
+
+    </body>
+</html>
